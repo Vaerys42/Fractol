@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pixel.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kboucaud <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/21 11:50:10 by kboucaud          #+#    #+#             */
+/*   Updated: 2017/09/21 11:50:13 by kboucaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fractol.h"
 
@@ -17,7 +28,7 @@ unsigned int	get_color(int a, t_fract *fractal)
 	return (c);
 }
 
-void	put_pxl(t_data *data, int x, int y, unsigned int c)
+void			put_pxl(t_data *data, int x, int y, unsigned int c)
 {
 	int		i;
 

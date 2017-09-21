@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   manderbrot.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kboucaud <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/21 11:42:59 by kboucaud          #+#    #+#             */
+/*   Updated: 2017/09/21 11:47:56 by kboucaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fractol.h"
 
-int 		mandelbrot_iter(t_base *co)
+int			mandelbrot_iter(t_base *co)
 {
 	int		i;
 
@@ -19,9 +30,9 @@ int 		mandelbrot_iter(t_base *co)
 
 void		mandelbrot(t_fract *fractal)
 {
-	unsigned int 	x;
-	unsigned int 	y;
-	unsigned int 	color;
+	unsigned int	x;
+	unsigned int	y;
+	unsigned int	color;
 
 	x = fractal->co->x;
 	while (++x < IMG_X + fractal->co->x)
@@ -34,8 +45,10 @@ void		mandelbrot(t_fract *fractal)
 			fractal->co->c_r = x / fractal->co->zoom + fractal->co->x1;
 			fractal->co->c_i = y / fractal->co->zoom + fractal->co->y1;
 			color = get_color(mandelbrot_iter(fractal->co), fractal);
-			put_pxl(fractal->data, x - fractal->co->x, y - fractal->co->y, color);
+			put_pxl(fractal->data, x - fractal->co->x,\
+			y - fractal->co->y, color);
 		}
 	}
-	mlx_put_image_to_window(fractal->data->mlx, fractal->data->mlx_window, fractal->data->mlx_image, 0, 0);
+	mlx_put_image_to_window(fractal->data->mlx, fractal->data->mlx_window,\
+	fractal->data->mlx_image, 0, 0);
 }

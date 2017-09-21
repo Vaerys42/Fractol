@@ -1,6 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   julia.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kboucaud <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/21 11:37:00 by kboucaud          #+#    #+#             */
+/*   Updated: 2017/09/21 11:38:18 by kboucaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-void			ft_modif_param(int x, int y, t_fract *fractal)
+void				ft_ini_julia(t_fract *fractal)
+{
+	fractal->co->x1 = -1.2;
+	fractal->co->x2 = 1.2;
+	fractal->co->y1 = -1.2;
+	fractal->co->y2 = 1.2;
+	fractal->co->c_r = 0.285;
+	fractal->co->c_i = 0.01;
+}
+
+void				ft_modif_param(int x, int y, t_fract *fractal)
 {
 	if ((x > fractal->old_x + 5) || (y > fractal->old_y + 5))
 	{
@@ -24,7 +46,7 @@ void			ft_modif_param(int x, int y, t_fract *fractal)
 	}
 }
 
-unsigned int	julia_iter(t_base *co)
+unsigned int		julia_iter(t_base *co)
 {
 	int		i;
 
@@ -40,11 +62,11 @@ unsigned int	julia_iter(t_base *co)
 	return (i);
 }
 
-void		julia(t_fract *fractal)
+void				julia(t_fract *fractal)
 {
-	int		x;
-	int		y;
-	unsigned int color;
+	int				x;
+	int				y;
+	unsigned int	color;
 
 	x = fractal->co->x;
 	while (++x < IMG_X + fractal->co->x)
@@ -55,8 +77,10 @@ void		julia(t_fract *fractal)
 			fractal->co->z_r = x / fractal->co->zoom + fractal->co->x1;
 			fractal->co->z_i = y / fractal->co->zoom + fractal->co->y1;
 			color = get_color(julia_iter(fractal->co), fractal);
-			put_pxl(fractal->data, x - fractal->co->x, y - fractal->co->y, color);
+			put_pxl(fractal->data, x - fractal->co->x, y - fractal->co->y,\
+			color);
 		}
 	}
-	mlx_put_image_to_window(fractal->data->mlx, fractal->data->mlx_window, fractal->data->mlx_image, 0, 0);
+	mlx_put_image_to_window(fractal->data->mlx, fractal->data->mlx_window,\
+	fractal->data->mlx_image, 0, 0);
 }

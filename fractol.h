@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kboucaud <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/21 11:20:09 by kboucaud          #+#    #+#             */
+/*   Updated: 2017/09/21 11:31:44 by kboucaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -9,18 +21,18 @@
 # include "minilibx_macos/mlx.h"
 # include <math.h>
 
-typedef struct 		s_data
+typedef struct		s_data
 {
 	void			*mlx;
 	void			*mlx_window;
 	void			*mlx_image;
-	char 			*image_string;
+	char			*image_string;
 	int				s_l;
 	int				bpp;
 	int				endian;
 }					t_data;
 
-typedef struct 		s_base
+typedef struct		s_base
 {
 	int				x;
 	int				y;
@@ -37,7 +49,7 @@ typedef struct 		s_base
 	double			zoom;
 }					t_base;
 
-typedef struct 		s_fract
+typedef struct		s_fract
 {
 	char			*type;
 	t_data			*data;
@@ -48,8 +60,9 @@ typedef struct 		s_fract
 
 void				ft_bad_arg(void);
 t_data				*ft_create(void);
+void				ft_ini_julia(t_fract *fractal);
 void				mandelbrot(t_fract *fractal);
-void				ft_base_fractale(t_fract *fractal);	
+void				ft_base_fractale(t_fract *fractal);
 void				ft_error(void);
 void				zoom_out(t_fract *fractal);
 void				zoom_in(t_fract *fractal);

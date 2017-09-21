@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kboucaud <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/21 11:41:59 by kboucaud          #+#    #+#             */
+/*   Updated: 2017/09/21 11:42:00 by kboucaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fractol.h"
 
@@ -7,23 +18,23 @@ void		ft_error(void)
 	exit(1);
 }
 
-void	ft_exe(t_fract *fractal)
+void		ft_exe(t_fract *fractal)
 {
 	if ((ft_strcmp(fractal->type, "Mandelbrot")) == 0)
 		mandelbrot(fractal);
 	if ((ft_strcmp(fractal->type, "Julia") == 0))
 		julia(fractal);
 	if (ft_strcmp(fractal->type, "Burningship") == 0)
-		burning(fractal);	
+		burning(fractal);
 }
 
-void	ft_bad_arg(void)
+void		ft_bad_arg(void)
 {
 	ft_putstr("Bad Parameters\nUse one of the following:\nMandelbrot\nJulia\n");
 	exit(1);
 }
 
-int		main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	t_fract			*fractal;
 
@@ -44,7 +55,7 @@ int		main(int argc, char **argv)
 	mlx_expose_hook(fractal->data->mlx_window, my_expose_hook, fractal);
 	mlx_key_hook(fractal->data->mlx_window, my_key_func, fractal);
 	mlx_mouse_hook(fractal->data->mlx_window, my_mouse_hook, fractal);
-	mlx_hook(fractal->data->mlx_window, 6, (1L<<6), mouse_move, fractal);
+	mlx_hook(fractal->data->mlx_window, 6, (1L << 6), mouse_move, fractal);
 	ft_exe(fractal);
 	mlx_loop(fractal->data->mlx);
 	return (0);
