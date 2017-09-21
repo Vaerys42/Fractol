@@ -1,0 +1,28 @@
+
+#include "fractol.h"
+
+unsigned int	get_color(int a, t_fract *fractal)
+{
+	unsigned int	c;
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+
+	if (a == fractal->co->max_ite)
+		return (1);
+	r = 0;
+	g = 0;
+	b = (a * 5);
+	c = (r << 16) + (g << 8) + b;
+	return (c);
+}
+
+void	put_pxl(t_data *data, int x, int y, unsigned int c)
+{
+	int		i;
+
+	i = (x * 4) + (y * data->s_l);
+	data->image_string[i] = c;
+	data->image_string[++i] = c >> 8;
+	data->image_string[++i] = c >> 16;
+}
