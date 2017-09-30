@@ -12,6 +12,24 @@
 
 #include "fractol.h"
 
+void		ft_switch(int key, t_fract *fractal)
+{
+	if (key == 1)
+	{
+		fractal->type++;
+		if (fractal->type >= 4)
+			fractal->type = 1;
+		ft_base_fractale(fractal);
+	}
+	else
+	{
+		fractal->color++;
+		if (fractal->color >= 4)
+			fractal->color = 1;
+	}
+	ft_exe(fractal);
+}
+
 int			my_mouse_hook(int key, int x, int y, t_fract *fractal)
 {
 	if (key == 4)
@@ -42,6 +60,10 @@ int		my_key_press(int key, t_fract *fractal)
 		free(fractal);
 		exit(1);
 	}
+	if (key == 1 || key == 8)
+		ft_switch(key, fractal);
+	if (key == 15)
+		ft_base_fractale(fractal);
 	if (key == LEFT_KEY)
 		fractal->move->left = 1;
 	if (key == RIGHT_KEY)
@@ -83,7 +105,7 @@ int			my_expose_hook(t_fract *fractal)
 
 int			mouse_move(int x, int y, t_fract *fractal)
 {
-	if ((ft_strcmp(fractal->type, "Julia") == 0))
+	if (fractal->type == 2)
 		ft_modif_param(x, y, fractal);
 	return (0);
 }

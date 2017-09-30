@@ -20,11 +20,11 @@ void		ft_error(void)
 
 void		ft_exe(t_fract *fractal)
 {
-	if ((ft_strcmp(fractal->type, "Mandelbrot")) == 0)
+	if (fractal->type == 1)
 		mandelbrot(fractal);
-	if ((ft_strcmp(fractal->type, "Julia") == 0))
+	if (fractal->type == 2)
 		julia(fractal);
-	if (ft_strcmp(fractal->type, "Burningship") == 0)
+	if (fractal->type == 3)
 		burning(fractal);
 }
 
@@ -50,11 +50,11 @@ int			main(int argc, char **argv)
 	if ((fractal = (t_fract*)malloc(sizeof(t_fract))) == NULL)
 		ft_error();
 	if (ft_strcmp(argv[1], "Mandelbrot") == 0)
-		fractal->type = ft_strdup("Mandelbrot");
+		fractal->type = 1;
 	else if (ft_strcmp(argv[1], "Julia") == 0)
-		fractal->type = ft_strdup("Julia");
+		fractal->type = 2;
 	else if (ft_strcmp(argv[1], "Burningship") == 0)
-		fractal->type = ft_strdup("Burningship");
+		fractal->type = 3;
 	else
 		ft_bad_arg();
 	fractal->data = ft_create();

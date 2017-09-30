@@ -45,7 +45,7 @@ void		ft_base_fractale(t_fract *fractal)
 		ft_error();
 	if ((fractal->move = (t_move*)malloc(sizeof(t_move))) == NULL)
 		ft_error();
-	if (ft_strcmp(fractal->type, "Julia") == 0)
+	if (fractal->type == 2)
 		ft_ini_julia(fractal);	
 	else
 	{
@@ -64,4 +64,5 @@ void		ft_base_fractale(t_fract *fractal)
 	fractal->co->max_ite = MAX_ITE;
 	fractal->old_x = 0;
 	fractal->old_y = 0;
+	fractal->color = 1;
 }

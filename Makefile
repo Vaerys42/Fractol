@@ -5,7 +5,6 @@ SRC =	ini.c \
 		burning.c \
 		julia.c \
 		manderbrot.c \
-		nuancier.c \
 		pixel.c \
 		zoom.c \
 		key.c

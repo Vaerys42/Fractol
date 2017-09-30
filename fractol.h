@@ -62,12 +62,13 @@ typedef struct		s_base
 
 typedef struct		s_fract
 {
-	char			*type;
+	int				type;
 	t_data			*data;
 	t_base			*co;
 	int				old_x;
 	int				old_y;
 	t_move			*move;
+	int				color;
 }					t_fract;
 
 void				ft_bad_arg(void);

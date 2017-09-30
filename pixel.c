@@ -19,11 +19,17 @@ unsigned int	get_color(int a, t_fract *fractal)
 	unsigned char	g;
 	unsigned char	b;
 
-	if (a == fractal->co->max_ite)
-		return (1);
-	r = (a * 5);
+	r = 0;
 	g = 0;
 	b = 0;
+	if (a == fractal->co->max_ite)
+		return (1);
+	if (fractal->color == 1)
+		r = (a * 5);
+	if (fractal->color == 2)
+		g = (a * 5);
+	if (fractal->color == 3)
+		b = (a * 5);
 	c = (r << 16) + (g << 8) + b;
 	return (c);
 }
