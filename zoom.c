@@ -14,16 +14,18 @@
 
 void	ft_zoom_in(int x, int y, t_fract *fractal)
 {
-	fractal->co->x1 = (x - 300) / fractal->co->zoom;
-	fractal->co->y1 = (y - 300) / fractal->co->zoom;
-	fractal->co->zoom *= 1.1;
-	fractal->co->max_ite *= 1.1;
+	fractal->co->x2 = x;
+	fractal->co->y2 = y;
+	fractal->co->x1 = (x / fractal->co->zoom + fractal->co->x1) - ( x / (fractal->co->zoom * 1.3));
+	fractal->co->y1 = (y / fractal->co->zoom + fractal->co->y1) - (y / (fractal->co->zoom * 1.3));
+	fractal->co->zoom *= 1.3;
+	fractal->co->max_ite++;
 }
 
 void	ft_zoom_out(int x, int y, t_fract *fractal)
 {
-	fractal->co->x1 = (x - 300) / fractal->co->zoom;
-	fractal->co->y1 = (y - 300) / fractal->co->zoom;
-	fractal->co->zoom /= 1.1;
-	fractal->co->max_ite /= 1.1;
+	fractal->co->x1 = (x / fractal->co->zoom + fractal->co->x1) - (x / (fractal->co->zoom / 1.3));
+	fractal->co->y1 = (y / fractal->co->zoom + fractal->co->y1) - (y / (fractal->co->zoom / 1.3));
+	fractal->co->zoom /= 1.3;
+	fractal->co->max_ite--;	
 }
