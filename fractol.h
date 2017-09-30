@@ -98,4 +98,6 @@ int					mouse_move(int x, int y, t_fract *fractal);
 void				ft_exe(t_fract *fractal);
 void				ft_switch(int key, t_fract *fractal);
 
+int					ft_exit_cross(t_fract *fract);
+
 #endif

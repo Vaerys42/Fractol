@@ -64,6 +64,7 @@ int			main(int argc, char **argv)
 	mlx_hook(fractal->data->mlx_window, 2, 1L << 0, my_key_press, fractal);
 	mlx_hook(fractal->data->mlx_window, 3, 1L << 1, my_key_release, fractal);
 	mlx_hook(fractal->data->mlx_window, 6, (1L << 6), mouse_move, fractal);
+	mlx_hook(fractal->data->mlx_window, 17, 0, ft_exit_cross, fractal);
 	mlx_mouse_hook(fractal->data->mlx_window, my_mouse_hook, fractal);
 	ft_exe(fractal);
 	mlx_loop(fractal->data->mlx);

@@ -12,6 +12,13 @@
 
 #include "fractol.h"
 
+int			ft_exit_cross(t_fract *fractal)
+{
+	mlx_destroy_image(fractal->data->mlx, fractal->data->mlx_image);
+	exit(EXIT_SUCCESS);
+	return (0);
+}
+
 void		ft_switch(int key, t_fract *fractal)
 {
 	if (key == 1)
