@@ -46,7 +46,7 @@ void		ft_base_fractale(t_fract *fractal)
 	if ((fractal->move = (t_move*)malloc(sizeof(t_move))) == NULL)
 		ft_error();
 	if (fractal->type == 2)
-		ft_ini_julia(fractal);	
+		ft_ini_julia(fractal);
 	else
 	{
 		fractal->co->x1 = -2.1;

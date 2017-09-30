@@ -92,8 +92,10 @@ int					my_expose_hook(t_fract *fractal);
 void				ft_move(t_fract *fractal);
 int					my_key_press(int key, t_fract *fractal);
 int					my_key_release(int key, t_fract *fractal);
+void				ft_move(t_fract *fractal);
 int					my_mouse_hook(int key, int x, int y, t_fract *fractal);
 int					mouse_move(int x, int y, t_fract *fractal);
 void				ft_exe(t_fract *fractal);
+void				ft_switch(int key, t_fract *fractal);
 
 #endif

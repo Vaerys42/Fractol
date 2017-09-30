@@ -34,7 +34,7 @@ void		ft_bad_arg(void)
 	exit(1);
 }
 
-int		ft_loop(t_fract *fractal)
+int			ft_loop(t_fract *fractal)
 {
 	ft_move(fractal);
 	ft_exe(fractal);
