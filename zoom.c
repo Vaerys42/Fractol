@@ -14,10 +14,8 @@
 
 void	ft_zoom_in(int x, int y, t_fract *fractal)
 {
-
 }
 
 void	ft_zoom_out(int x, int y, t_fract *fractal)
 {
-
 }
