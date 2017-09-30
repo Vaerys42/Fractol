@@ -15,13 +15,13 @@
 void	ft_move(t_fract *fractal)
 {
 	if (fractal->move->right == 1)
-		fractal->co->x1 += 0.05;
+		fractal->co->x1 += 10 / fractal->co->zoom;
 	if (fractal->move->left == 1)
-		fractal->co->x1 -= 0.05;
+		fractal->co->x1 -= 10 / fractal->co->zoom;
 	if (fractal->move->up == 1)
-		fractal->co->y1 -= 0.05;
+		fractal->co->y1 -= 10 / fractal->co->zoom;
 	if (fractal->move->down == 1)
-		fractal->co->y1 += 0.05;
+		fractal->co->y1 += 10 / fractal->co->zoom;
 }
 
 int		my_key_press(int key, t_fract *fractal)
