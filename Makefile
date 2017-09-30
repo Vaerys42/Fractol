@@ -8,7 +8,8 @@ SRC =	ini.c \
 		pixel.c \
 		zoom.c \
 		key.c \
-		move.c
+		move.c \
+		error.c
 
 LIBS =	-framework OpenGL -framework Appkit minilibx_macos/libmlx.a libft/libft.a
 

@@ -12,12 +12,6 @@
 
 #include "fractol.h"
 
-void		ft_error(void)
-{
-	write(1, "error\n", 6);
-	exit(1);
-}
-
 void		ft_exe(t_fract *fractal)
 {
 	if (fractal->type == 1)
@@ -28,17 +22,23 @@ void		ft_exe(t_fract *fractal)
 		burning(fractal);
 }
 
-void		ft_bad_arg(void)
-{
-	ft_putstr("Bad Parameters\nUse one of the following:\nMandelbrot\nJulia\n");
-	exit(1);
-}
-
 int			ft_loop(t_fract *fractal)
 {
 	ft_move(fractal);
 	ft_exe(fractal);
 	return (0);
+}
+
+void		ft_set_arg(char *arg, t_fract *fractal)
+{
+	if (ft_strcmp(arg, "Mandelbrot") == 0)
+		fractal->type = 1;
+	else if (ft_strcmp(arg, "Julia") == 0)
+		fractal->type = 2;
+	else if (ft_strcmp(arg, "Burningship") == 0)
+		fractal->type = 3;
+	else
+		ft_bad_arg();
 }
 
 int			main(int argc, char **argv)
@@ -49,14 +49,7 @@ int			main(int argc, char **argv)
 		ft_error();
 	if ((fractal = (t_fract*)malloc(sizeof(t_fract))) == NULL)
 		ft_error();
-	if (ft_strcmp(argv[1], "Mandelbrot") == 0)
-		fractal->type = 1;
-	else if (ft_strcmp(argv[1], "Julia") == 0)
-		fractal->type = 2;
-	else if (ft_strcmp(argv[1], "Burningship") == 0)
-		fractal->type = 3;
-	else
-		ft_bad_arg();
+	ft_set_arg(argv[1], fractal);
 	fractal->data = ft_create();
 	ft_base_fractale(fractal);
 	mlx_loop_hook(fractal->data->mlx, ft_loop, fractal);
