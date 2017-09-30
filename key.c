@@ -24,7 +24,7 @@ void		ft_switch(int key, t_fract *fractal)
 	else
 	{
 		fractal->color++;
-		if (fractal->color >= 4)
+		if (fractal->color >= 7)
 			fractal->color = 1;
 	}
 	ft_exe(fractal);
