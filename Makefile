@@ -14,6 +14,8 @@ LIBS =	-framework OpenGL -framework Appkit minilibx_macos/libmlx.a libft/libft.a
 
 OBJ =	$(SRC:.c=.o)
 
+.SILENT :
+
 all : $(NAME)
 
 $(NAME) : 

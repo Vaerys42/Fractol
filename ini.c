@@ -31,12 +31,22 @@ t_data		*ft_create(void)
 	return (data);
 }
 
+void		ft_move_ini(t_fract *fractal)
+{
+	fractal->move->right = 0;
+	fractal->move->left = 0;
+	fractal->move->up = 0;
+	fractal->move->down = 0;
+}
+
 void		ft_base_fractale(t_fract *fractal)
 {
 	if ((fractal->co = (t_base*)malloc(sizeof(t_base))) == NULL)
 		ft_error();
+	if ((fractal->move = (t_move*)malloc(sizeof(t_move))) == NULL)
+		ft_error();
 	if (ft_strcmp(fractal->type, "Julia") == 0)
-		ft_ini_julia(fractal);
+		ft_ini_julia(fractal);	
 	else
 	{
 		fractal->co->x1 = -2.1;
@@ -46,12 +56,11 @@ void		ft_base_fractale(t_fract *fractal)
 		fractal->co->c_r = 0;
 		fractal->co->c_i = 0;
 	}
+	ft_move_ini(fractal);
 	fractal->co->z_r = 0;
 	fractal->co->z_i = 0;
 	fractal->co->tmp = 0;
-	fractal->co->x = 0;
-	fractal->co->y = 0;
-	fractal->co->zoom = 350;
+	fractal->co->zoom = 200;
 	fractal->co->max_ite = MAX_ITE;
 	fractal->old_x = 0;
 	fractal->old_y = 0;

@@ -21,9 +21,9 @@ unsigned int	get_color(int a, t_fract *fractal)
 
 	if (a == fractal->co->max_ite)
 		return (1);
-	r = 0;
+	r = (a * 5);
 	g = 0;
-	b = (a * 5);
+	b = 0;
 	c = (r << 16) + (g << 8) + b;
 	return (c);
 }

@@ -34,6 +34,13 @@ void		ft_bad_arg(void)
 	exit(1);
 }
 
+int		ft_loop(t_fract *fractal)
+{
+	ft_move(fractal);
+	ft_exe(fractal);
+	return (0);
+}
+
 int			main(int argc, char **argv)
 {
 	t_fract			*fractal;
@@ -52,10 +59,12 @@ int			main(int argc, char **argv)
 		ft_bad_arg();
 	fractal->data = ft_create();
 	ft_base_fractale(fractal);
+	mlx_loop_hook(fractal->data->mlx, ft_loop, fractal);
 	mlx_expose_hook(fractal->data->mlx_window, my_expose_hook, fractal);
-	mlx_key_hook(fractal->data->mlx_window, my_key_func, fractal);
-	mlx_mouse_hook(fractal->data->mlx_window, my_mouse_hook, fractal);
+	mlx_hook(fractal->data->mlx_window, 2, 1L << 0, my_key_press, fractal);
+	mlx_hook(fractal->data->mlx_window, 3, 1L << 1, my_key_release, fractal);
 	mlx_hook(fractal->data->mlx_window, 6, (1L << 6), mouse_move, fractal);
+	//mlx_mouse_hook(fractal->data->mlx_window, my_mouse_hook, fractal);
 	ft_exe(fractal);
 	mlx_loop(fractal->data->mlx);
 	return (0);
