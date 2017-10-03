@@ -15,6 +15,7 @@
 int			ft_exit_cross(t_fract *fractal)
 {
 	mlx_destroy_image(fractal->data->mlx, fractal->data->mlx_image);
+	system("killall afplay");
 	exit(EXIT_SUCCESS);
 	return (0);
 }

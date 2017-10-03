@@ -29,6 +29,7 @@ int		my_key_press(int key, t_fract *fractal)
 	if (key == 53)
 	{
 		mlx_destroy_window(fractal->data->mlx, fractal->data->mlx_window);
+		system("killall afplay");
 		free(fractal);
 		exit(1);
 	}

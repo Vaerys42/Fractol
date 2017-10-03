@@ -86,6 +86,7 @@ void				put_pxl(t_data *data, int x, int y, unsigned int c);
 void				mandelbrot(t_fract *fractal);
 void				julia(t_fract *fractal);
 void				burning(t_fract *fractal);
+void				collatz(t_fract *fractal);
 void				ft_modif_param(int x, int y, t_fract *fractal);
 
 int					my_expose_hook(t_fract *fractal);

@@ -49,6 +49,7 @@ int			main(int argc, char **argv)
 		ft_error();
 	if ((fractal = (t_fract*)malloc(sizeof(t_fract))) == NULL)
 		ft_error();
+	system("afplay jarre.mp3 &");
 	ft_set_arg(argv[1], fractal);
 	fractal->data = ft_create();
 	ft_base_fractale(fractal);
